@@ -17,19 +17,16 @@ public class GameService {
         UserAction userAction = new UserAction(currentLifeBeing, status);
     }
 
-    public resetLifeBeing(){
 
-    }
-
-
-    public void resetLifeBeing() {
-
+    public void resetLifeBeing(LifeBeing puppet) {
+        currentLifeBeing = puppet;
     }
 
     public String render(RenderType renderType) {
         return currentLifeBeing.doRender(renderType);
     }
-    public Status getStatus(){
+
+    public Status getStatus() {
         return userActions;
     }
 

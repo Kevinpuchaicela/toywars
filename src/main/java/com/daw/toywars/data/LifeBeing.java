@@ -2,7 +2,7 @@ package com.daw.toywars.data;
 
 import java.util.List;
 
-public abstract class LifeBeing implements LivingBeingActions, IRender {
+public abstract class LifeBeing implements IActions, IRender {
     @Override
     public void doFeed(Action action) {
 

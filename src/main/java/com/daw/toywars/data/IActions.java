@@ -2,7 +2,7 @@ package com.daw.toywars.data;
 
 import java.util.List;
 
-public interface LivingBeingActions{
+public interface IActions {
     public void doFeed(Action action);
 
     public void doCleanIt(Action action);
