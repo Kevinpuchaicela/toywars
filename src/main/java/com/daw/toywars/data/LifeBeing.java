@@ -3,33 +3,43 @@ package com.daw.toywars.data;
 import java.util.List;
 
 public abstract class LifeBeing implements IActions, IRender {
+    public Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
-    public void doFeed(Action action) {
+    public void doFeed() {
 
     }
 
     @Override
-    public void doCleanIt(Action action) {
+    public void doCleanIt() {
 
     }
 
     @Override
-    public void doWalk(Action action) {
+    public void doWalk() {
 
     }
 
     @Override
-    public void doPlay(Action action) {
+    public void doPlay() {
 
     }
 
     @Override
-    public void doSleep(Action action) {
+    public void doSleep() {
 
     }
 
     @Override
-    public void doDie(Action action) {
+    public void doDie() {
 
     }
 

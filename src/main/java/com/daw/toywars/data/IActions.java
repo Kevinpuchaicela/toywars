@@ -3,17 +3,21 @@ package com.daw.toywars.data;
 import java.util.List;
 
 public interface IActions {
-    public void doFeed(Action action);
+    public void doFeed();
 
-    public void doCleanIt(Action action);
+    public void doCleanIt();
 
-    public void doWalk(Action action);
+    public void doWalk();
 
-    public void doPlay(Action action);
+    public void doPlay();
 
-    public void doSleep(Action action);
+    public void doDie();
 
-    public void doDie(Action action);
+    public void doSleep();
+
+    public void doFight();
+
+    public void doReset();
 
     public List<Action> getCurrentActions(Action action);
 }

@@ -5,6 +5,8 @@ public class Status {
     private Integer experiencePoints;
     private Action currentAction;
 
+    public Status() {}
+
     public Status(Integer healthPoints, Integer experiencePoints, Action currentAction) {
         this.healthPoints = healthPoints;
         this.experiencePoints = experiencePoints;
