@@ -3,14 +3,12 @@ package com.daw.toywars.data;
 public class Status {
     private Integer healthPoints;
     private Integer experiencePoints;
-    private Action currentAction;
 
     public Status() {}
 
-    public Status(Integer healthPoints, Integer experiencePoints, Action currentAction) {
+    public Status(Integer healthPoints, Integer experiencePoints) {
         this.healthPoints = healthPoints;
         this.experiencePoints = experiencePoints;
-        this.currentAction = currentAction;
     }
 
     public Integer getHealthPoints() {
@@ -29,11 +27,5 @@ public class Status {
         this.experiencePoints = experiencePoints;
     }
 
-    public Action getCurrentAction() {
-        return currentAction;
-    }
 
-    public void setCurrentAction(Action currentAction) {
-        this.currentAction = currentAction;
-    }
 }

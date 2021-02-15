@@ -1,18 +1,39 @@
 package com.daw.toywars.data;
 
+import java.util.Date;
+
 public class UserAction {
-    private LifeBeing puppet;
+    private String puppetName;
+    private Status currentStatus;
+    private Action currentAction;
 
-    public UserAction(LifeBeing puppet) {
-        this.puppet = puppet;
+    public UserAction(String puppetName, Status currentStatus, Action currentAction) {
+        this.puppetName = puppetName;
+        this.currentStatus = currentStatus;
+        this.currentAction = currentAction;
     }
 
-    public LifeBeing getPuppet() {
-        return puppet;
+    public Action getCurrentAction() {
+        return currentAction;
     }
 
-    public void setPuppet(LifeBeing puppet) {
-        this.puppet = puppet;
+    public void setCurrentAction(Action currentAction) {
+        this.currentAction = currentAction;
     }
 
+    public String getPuppetName() {
+        return puppetName;
+    }
+
+    public void setPuppetName(String puppetName) {
+        this.puppetName = puppetName;
+    }
+
+    public Status getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(Status currentStatus) {
+        this.currentStatus = currentStatus;
+    }
 }

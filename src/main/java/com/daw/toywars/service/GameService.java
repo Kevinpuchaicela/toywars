@@ -1,8 +1,10 @@
 package com.daw.toywars.service;
 
 import com.daw.toywars.data.*;
+import com.daw.toywars.data.puppets.PuppetType;
 import com.daw.toywars.data.puppets.pokemons.Pokemon;
 import com.daw.toywars.data.puppets.pokemons.PokemonType;
+import com.daw.toywars.data.puppets.tamagochi.Tamagochi;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,12 +12,12 @@ import java.util.List;
 
 @Service
 public class GameService {
-    public static List<UserAction> userActions = new ArrayList<>();
+    public final List<UserAction> userActions = new ArrayList<>();
     public int maxPoints = 100;
     public LifeBeing currentLifeBeing;
     /* agregado por kevin*/
 
-
+    // TODO: hacer el programa!
     public void doAction(Action action) {
         switch (action) {
             case FEED:
@@ -44,17 +46,15 @@ public class GameService {
             default:
         }
 
-        Status status = new Status(currentLifeBeing.getStatus().getHealthPoints(), currentLifeBeing.getStatus().getExperiencePoints(), action);
-        currentLifeBeing.setStatus(status);
-        UserAction userAction = new UserAction(currentLifeBeing);
+        UserAction userAction = new UserAction(currentLifeBeing.getName(), currentLifeBeing.getStatus(), action);
         userActions.add(userAction);
     }
 
     public void resetLifeBeing() {
         currentLifeBeing.doReset();
-        Status status = new Status(maxPoints, 0, Action.RESET);
+        Status status = new Status(maxPoints, 0);
         currentLifeBeing.setStatus(status);
-        UserAction userAction = new UserAction(currentLifeBeing);
+        UserAction userAction = new UserAction(currentLifeBeing.getName(), currentLifeBeing.getStatus(), Action.RESET);
         userActions.add(userAction);
     }
 
@@ -72,6 +72,19 @@ public class GameService {
 
     public void setCurrentLifeBeing(LifeBeing currentLifeBeing) {
         this.currentLifeBeing = currentLifeBeing;
+    }
+
+    public void createNewPokemon(Pokemon pokemon) {
+        LifeBeing poke = new Pokemon(pokemon.getName(), pokemon.getColorType(), pokemon.getStatus(), pokemon.getPokemonType());
+        setCurrentLifeBeing(poke);
+        resetLifeBeing();
+        //TODO: asociar el puppet al player
+    }
+
+    public void createNewTamagochi(Tamagochi tamagochi) {
+        LifeBeing tama = new Tamagochi(tamagochi.getName(), tamagochi.getColorType(), tamagochi.getStatus(), tamagochi.getTamaType());
+        setCurrentLifeBeing(tama);
+        resetLifeBeing();
     }
 
     public int getMaxPoints() {

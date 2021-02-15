@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Formulario para crear una nueva mascota</h1>
+<br>
+<h2>FORM PARA POKEMON</h2>
+<form action="/rest/new/pokemon" method="POST">
+    nombre:<input type="text" name="name">
+    <br>
+    tipo de pokemon:
+    <select name="pokemonType">
+        <option value="FIRE">Fuego</option>
+        <option value="WATER">Agua</option>
+        <option value="EARTH">Tierra</option>
+    </select>
+    <br>
+    color:
+    <input type="text" name="colorType">
+    <input type="submit" value="crear">
+</form>
+<h2>FORM PARA TAMAGOCHI</h2>
+<form action="/rest/new/tamagochi" method="POST">
+    nombre:<input type="text" name="name">
+    <br>
+    tipo de pokemon:
+    <select name="tamaType">
+        <option value="MALE">Femenino</option>
+        <option value="MASCULINO">Masculino</option>
+    </select>
+    <br>
+    color:
+    <input type="text" name="colorType">
+    <input type="submit" value="crear">
+</form>
+
+</body>
+</html>

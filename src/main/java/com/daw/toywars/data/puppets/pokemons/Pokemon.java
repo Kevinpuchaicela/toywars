@@ -4,32 +4,11 @@ import com.daw.toywars.data.*;
 import org.apache.commons.lang3.StringUtils;
 
 public class Pokemon extends LifeBeing implements IActions, IRender {
-    private String name;
     private PokemonType pokemonType;
-    private String colorType;
-    private Status status;
 
-    public Pokemon(String name, PokemonType pokemonType, String colorType, Status status) {
-        this.name = name;
+    public Pokemon(String name, String colorType, Status status, PokemonType pokemonType) {
+        super(name, colorType, status);
         this.pokemonType = pokemonType;
-        this.colorType = colorType;
-        this.status = status;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public PokemonType getPokemonType() {
@@ -40,18 +19,36 @@ public class Pokemon extends LifeBeing implements IActions, IRender {
         this.pokemonType = pokemonType;
     }
 
-    public String getColorType() {
-        return colorType;
-    }
-
-    public void setColorType(String colorType) {
-        this.colorType = colorType;
+    // pasar el metodo al LifeBeing o incluso crar una clase Toy extendiendo de LifeBeing y ponerlo ahí?.
+    public Integer getCurrentOption(String option) {
+        switch (option) {
+            case "vida":
+                return super.getStatus().getHealthPoints();
+            case "exp":
+                return super.getStatus().getExperiencePoints();
+            default:
+                return null;
+        }
     }
 
     @Override
     public void doFeed() {
-        System.out.println("Pokemon comiendo...");
-        this.status.setHealthPoints(getStatus().getHealthPoints() + 5);
+        final Integer pointsForEating = 10;
+//        el pokemon cada vez que coma aumentará la vida 10p, si la vida está al 145, vomitará (porque está lleno)
+//        y se le restará 25 de vida.
+        if ((getStatus().getHealthPoints() + pointsForEating) > 145) {
+            Status status = new Status(getCurrentOption("vida") - 65, getCurrentOption("exp"));
+            super.setStatus(status);
+            System.out.println("Pokemon vomitando...");
+        } else {
+            System.out.println("Pokemon comiendo...");
+//        +10 de vida
+            Status status = new Status(getCurrentOption("vida") + pointsForEating, getCurrentOption("exp"));
+            super.setStatus(status);
+        }
+
+        //doRender(RenderType.HTML);
+
     }
 
     @Override
@@ -77,7 +74,7 @@ public class Pokemon extends LifeBeing implements IActions, IRender {
 
     @Override
     public void doFight() {
-        this.status.setHealthPoints(getStatus().getHealthPoints() - 50);
+//        this.status.setHealthPoints(getStatus().getHealthPoints() - 50);
     }
 
     @Override
@@ -98,7 +95,7 @@ public class Pokemon extends LifeBeing implements IActions, IRender {
                 System.out.println(String.format("POKE: %s", "Pikachu"));
                 break;
             case HTML:
-                rtn = String.format("<div>%s</div>", "Charizard");
+                rtn = String.format("<div>%s</div>", getName());
                 return rtn;
             default:
                 //rtn=JSONObject.toJSONString();
