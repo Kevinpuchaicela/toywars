@@ -34,10 +34,10 @@ public class Pokemon extends LifeBeing implements IActions, IRender {
     @Override
     public void doFeed() {
         final Integer pointsForEating = 10;
-//        el pokemon cada vez que coma aumentará la vida 10p, si la vida está al 145, vomitará (porque está lleno)
+//        el pokemon cada vez que coma aumentará la vida 10p, si a la hora de comer la vida sobrepasa 145 vomitará (porque está lleno)
 //        y se le restará 25 de vida.
         if ((getStatus().getHealthPoints() + pointsForEating) > 145) {
-            Status status = new Status(getCurrentOption("vida") - 65, getCurrentOption("exp"));
+            Status status = new Status(getCurrentOption("vida") - 25, getCurrentOption("exp"));
             super.setStatus(status);
             System.out.println("Pokemon vomitando...");
         } else {

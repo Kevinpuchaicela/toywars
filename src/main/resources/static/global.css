@@ -1,0 +1,163 @@
+:root {
+    --color-primario: #BEA662;
+    --color-texto: #707070;
+    --color-secundario: rgb(58, 58, 58);
+    --max-width: 1700px;
+    --max-width-content: 1000px;
+    --transition: all 0.5s ease;
+}
+
+.tx-ct {
+    text-align: center;
+}
+
+.k-margin {
+    margin: 3rem 0;
+}
+
+.k-padding {
+    padding: 3rem 0;
+}
+
+.k-grid {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.k-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+img:focus {
+    outline: none;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+label {
+    display: block;
+}
+
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.4em;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+input:disabled {
+    color: #ccc;
+}
+
+
+input[type="range"] {
+    height: 0;
+}
+
+button {
+    color: #333;
+    background-color: #f4f4f4;
+    outline: none;
+}
+
+button:disabled {
+    color: #999;
+}
+
+
+
+button:focus {
+    border-color: none;
+    background-color: none;
+}
+
+.btn {
+    display: block;
+    width: max-content;
+    color: white;
+    background-color: var(--color-primario);
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    outline: 2px solid var(--color-primario);
+    background-color: #2d2d2d;
+    color: var(--color-primario);
+}
+
+.titulo {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.8em;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+@media (min-width: 400px) {
+    body {
+        font-size: 16px;
+    }
+}

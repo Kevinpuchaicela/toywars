@@ -1,5 +1,6 @@
 package com.daw.toywars.service;
 
+import com.daw.toywars.data.LifeBeing;
 import com.daw.toywars.data.Player.Player;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +27,11 @@ public class PlayerService {
 
     }
 
-    public void register(Player player){
-        setCurrentPlayer(player);
-       this.playerList.add(player);
+    public void register(Player player) {
+        Integer randomId = 73645;
+        Player newPlayer = new Player(randomId, player.getName(), player.getEmail(), player.getPassword(), new ArrayList<>());
+        setCurrentPlayer(newPlayer);
+        this.playerList.add(player); // TODO: Por qué quitar el "this" no da ERROR?? Revisar.
     }
 
 

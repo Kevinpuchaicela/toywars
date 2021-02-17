@@ -15,9 +15,10 @@ public class GameService {
     public final List<UserAction> userActions = new ArrayList<>();
     public int maxPoints = 100;
     public LifeBeing currentLifeBeing;
-    /* agregado por kevin*/
 
-    // TODO: hacer el programa!
+    /*agregado por mi*/
+    public String currentRender;  //TODO: hacer que el render quede guardado en memoria service
+
     public void doAction(Action action) {
         switch (action) {
             case FEED:
@@ -93,5 +94,13 @@ public class GameService {
 
     public void setMaxPoints(int maxPoints) {
         this.maxPoints = maxPoints;
+    }
+
+    public String getCurrentRender() {
+        return currentRender;
+    }
+
+    public void setCurrentRender(String currentRender) {
+        this.currentRender = currentRender;
     }
 }

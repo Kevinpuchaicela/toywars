@@ -2,19 +2,21 @@ package com.daw.toywars.data.Player;
 
 import com.daw.toywars.data.LifeBeing;
 
+import java.util.List;
+
 public class Player {
     private Integer id;
     private String name;
     private String email;
     private String password;
-    private LifeBeing puppet;
+    private List<LifeBeing> puppets;
 
-    public Player(Integer id, String name, String email, String password, LifeBeing puppet) {
+    public Player(Integer id, String name, String email, String password, List<LifeBeing> puppets) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.puppet = puppet;
+        this.puppets = puppets;
     }
 
     public Integer getId() {
@@ -49,11 +51,14 @@ public class Player {
         this.password = password;
     }
 
-    public LifeBeing getPuppet() {
-        return puppet;
+    public List<LifeBeing> getPuppets() {
+        return puppets;
     }
 
-    public void setPuppet(LifeBeing puppet) {
-        this.puppet = puppet;
+    public void setPuppets(List<LifeBeing> puppets) {
+        this.puppets = puppets;
+    }
+    public void addPuppet(LifeBeing puppet){
+        this.puppets.add(puppet);
     }
 }

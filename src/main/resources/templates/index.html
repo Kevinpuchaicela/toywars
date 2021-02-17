@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link rel="stylesheet" href="/global.css">
+    <style>
+
+        header{
+            background-color: #ffffff;
+            border-radius: 20px;
+        }
+
+        #life-being__status{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            font-size: 20px;
+        }
+        .life-being__status__experience{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background {
+            background-color: #8e4932;
+            min-height: 100vh;
+        }
+
+        .experience-coin {
+            width: 50px;
+            animation: coin-anim 1s infinite linear;
+        }
+
+        @keyframes coin-anim {
+            0% {
+                animation-timing-function: cubic-bezier(0.9647, 0.2413, -0.0705, 0.7911);
+                transform: scale(0.9099999999999999);
+            }
+            51% {
+                animation-timing-function: cubic-bezier(0.9226, 0.2631, -0.0308, 0.7628);
+                transform: scale(1.02994);
+            }
+            100% {
+                transform: scale(0.9099999999999999);
+            }
+        }
+    </style>
+</head>
+<body class="background">
+<div class="k-grid">
+    <header>
+        <div id="life-being__status">
+
+        </div>
+    </header>
+    <main>
+        <div class="forms">
+            <h2>FORM PARA POKEMON</h2>
+            <form action="/new/pokemon" method="POST">
+                <label>
+                    <span class="form__title">Nombre</span>
+                    <input type="text" name="name">
+                </label>
+                <br>
+
+                <label>
+                    <span class="form__title">Tipo</span>
+                    <select name="pokemonType">
+                        <option value="FIRE">Fuego</option>
+                        <option value="WATER">Agua</option>
+                        <option value="EARTH">Tierra</option>
+                    </select>
+                </label>
+                <br>
+
+                <label>
+                    <span class="form__title">Color</span>
+                    <input type="text" name="colorType">
+                </label>
+                <input type="submit" class="btn" value="crear">
+            </form>
+            <h2>FORM PARA TAMAGOCHI</h2>
+            <form action="/new/tamagochi" method="POST">
+                <label>
+                    <span class="form__title">Nombre</span>
+                    <input type="text" name="name">
+                </label>
+                <br>
+                <label>
+                    <span class="form__title">Tipo</span>
+                    <select name="tamaType">
+                        <option value="MALE">Femenino</option>
+                        <option value="MASCULINO">Masculino</option>
+                    </select>
+                </label>
+                <br>
+                <label>
+                    <span class="form__title">Color</span>
+                    <input type="text" name="colorType">
+                </label>
+                <input type="submit" class="btn" value="crear">
+            </form>
+        </div>
+        <div id="action-buttons"></div>
+        <div id="render">
+        </div>
+    </main>
+
+</div>
+<script src="/main.js"></script>
+</body>
+</html>
