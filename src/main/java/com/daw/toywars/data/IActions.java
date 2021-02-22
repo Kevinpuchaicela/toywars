@@ -7,17 +7,15 @@ public interface IActions {
 
     public void doCleanIt();
 
-    public void doWalk();
-
     public void doPlay();
 
     public void doDie();
 
     public void doSleep();
 
-    public void doFight();
-
     public void doReset();
+
+    public void doBarf();
 
     public List<Action> getCurrentActions(Action action);
 }

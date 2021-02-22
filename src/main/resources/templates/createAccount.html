@@ -4,27 +4,35 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/global.css">
+
 </head>
+
 <style>
     a{color: blue}
 </style>
-<body>
+<script>
+    if (!(sessionStorage.getItem("player") == null)){
+        location.href = "/"
+    }
+</script>
+<body class="background-forms">
 <h1>Registrarse</h1>
-<form action="/register" method="post" >
+<form action="/rest/register" method="post" id="form-register" class="forms">
     <label>
         <span class="form__title">Nombre</span>
-        <input type="text" name="name">
+        <input type="text" name="name" required>
     </label>
     <label>
         <span class="form__title">Email</span>
-        <input type="text" name="email">
+        <input type="text" name="email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
     </label>
     <label>
         <span class="form__title">Contraseña</span>
-        <input type="password" name="password">
+        <input type="password" name="password" required>
     </label>
-    <input type="submit" value="registrarse">
+    <input type="submit" value="registrarse" class="btn">
     <p>Ya tienes una cuenta? <a href="/login">Inicia sesión</a></p>
 </form>
+<script src="/register.js"></script>
 </body>
 </html>

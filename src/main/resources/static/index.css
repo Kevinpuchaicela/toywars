@@ -1,0 +1,265 @@
+#render {
+    width: 600px;
+    height: 450px;
+    background-color: rgba(24, 135, 163, 0.479);
+    border-radius: 5px;
+    margin: 2rem 0;
+    border: 10px ridge gray;
+}
+
+.btn-action {
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    padding: 3px 9px;
+    font-weight: bold;
+    border-radius: 30px;
+    margin: 0 2px;
+    border: 5px outset #cccecd;
+    transition: all .1s ease-in;
+}
+
+.btn-action:hover {
+    background-color: #5d5d5d;
+    color: white;
+}
+
+#action-buttons {
+    border: 10px ridge gray;
+    align-self: center;
+
+}
+
+#addpuppet {
+    position: absolute;
+
+}
+
+.no-mascotas {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+#list-puppets {
+    display: flex;
+    background-color: #eaeaea;
+    padding: 10px;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.list-puppets__item {
+    cursor: pointer;
+    background-color: #cecece;
+    padding: 12px;
+    border-radius: 20px;
+    margin-right: 10px;
+    text-align:center;
+}
+
+.list-puppets__item img {
+    max-width: 50px;
+}
+
+.list-puppets__item:hover {
+    transform: scale(1.1);
+    background-color: #a7a7a7;
+}
+
+
+/* login */
+.fa-ellipsis-v {
+    cursor: pointer;
+    font-size: 25px;
+    color: #4c4c4c;
+    background-color: #e4e4e4;
+    padding: 12px 20px;
+    border-radius: 100%;
+}
+
+.lista-settings {
+    position: absolute;
+    left: -150px;
+    top: 35px;
+    width: max-content;
+    min-height: 120px;
+    padding: 0;
+    display: none;
+    border-radius: 5px;
+    background: #f3f3f3;
+    list-style: none;
+    margin: 0;
+}
+
+.header-player__settings {
+    position: absolute;
+    right: -20px;
+    top: 130px;
+}
+
+.lista-settings > li {
+    cursor: pointer;
+    width: 100%;
+    border-bottom: 2px solid #cccccc;
+    padding: 10px 5px;
+    font-size: 14px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+.lista-settings > li:hover {
+    background-color: #cccccc;
+}
+
+.settings {
+    position: relative;
+}
+
+.header-player__settings:hover > .lista-settings {
+    display: block;
+}
+
+
+.close-modal {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background-color: white;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(46, 46, 46, 0.863);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(100%, 0);
+    transition: all .3s;
+}
+
+#forms {
+    width: 100%;
+    max-width: 500px;
+    background-color: cadetblue;
+    padding: 40px;
+    margin: 0 2rem;
+    border-radius: 10px;
+}
+
+.forms-puppets input, select, .btn {
+    width: 100%;
+}
+
+.forms-puppets .btn {
+    margin: 15px 0;
+}
+
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__title {
+    display: block;
+    padding: 5px 0px;
+    color: white;
+}
+
+.header-life-being {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    border: 10px ridge gray;
+    box-sizing: border-box;
+
+}
+
+.life-being__render {
+    height: 450px;
+}
+
+.life-being__render img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.life-being__status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    background-color: #f3f3f3;
+    padding: 7px 20px;
+}
+
+.life-being__status img {
+    margin-left: 3px;
+    width: 25px;
+}
+
+.life-being__status__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+.header__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 10px 0;
+}
+
+.lista-settings__player-info {
+    display: flex;
+    font-size: 12px;
+    flex-direction: column;
+    color: #737373;
+    font-weight: 400;
+    padding: 5px;
+    border-bottom: 2px solid #cccccc;
+}
+
+
+.background {
+    background-color: #8e4932;
+    min-height: 100vh;
+}
+
+.experience-coin {
+    width: 50px;
+    animation: coin-anim 1s infinite linear;
+}
+
+@keyframes coin-anim {
+    0% {
+        animation-timing-function: cubic-bezier(0.9647, 0.2413, -0.0705, 0.7911);
+        transform: scale(0.9099999999999999);
+    }
+
+    51% {
+        animation-timing-function: cubic-bezier(0.9226, 0.2631, -0.0308, 0.7628);
+        transform: scale(1.02994);
+    }
+
+    100% {
+        transform: scale(0.9099999999999999);
+    }
+}

@@ -6,25 +6,32 @@
     <link rel="stylesheet" href="/global.css">
 </head>
 <style>
-    a{color: blue}
+    a {
+        color: blue
+    }
 </style>
-<body>
+<script>
+    if (!(sessionStorage.getItem("player") == null)) {
+        location.href = "/"
+    }
+</script>
+<body class="background-forms">
 <h1>Puppet Game v2.0.12</h1>
 
-<div class="k-grid">
-    <form action="/rest/login" method="POST">
-        <label>
+<div class="k-grid-forms">
+    <form action="/rest/login" method="POST" id="form-login" class="forms">
+        <label for="email">
             <span class="form__title">Email</span>
-            <input type="text" name="email">
+            <input type="text" name="email" id="email">
         </label>
-        <label>
+        <label for="password">
             <span class="form__title">Contraseña</span>
-            <input type="password" name="password">
+            <input type="password" name="password" id="password">
         </label>
-        <input type="submit" value="Iniciar sesión">
+        <input type="submit" value="Iniciar sesión" class="btn">
         <p>Nuevo en Puppet Game? <a href="/register">Crea una cuenta</a></p>
     </form>
 </div>
-
+<script src="/login.js"></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 package com.daw.toywars.controller;
 
 import com.daw.toywars.data.*;
-import com.daw.toywars.data.puppets.PuppetType;
+import com.daw.toywars.data.Player.Player;
+import com.daw.toywars.data.puppets.Puppet;
 import com.daw.toywars.data.puppets.pokemons.Pokemon;
-import com.daw.toywars.data.puppets.pokemons.PokemonType;
 import com.daw.toywars.data.puppets.tamagochi.Tamagochi;
 import com.daw.toywars.service.GameService;
 import com.daw.toywars.service.PlayerService;
@@ -22,16 +22,21 @@ public class RestToyWarsController {
         this.playerService = playerService;
     }
 
-    @GetMapping("do/{action}")
-    public List<UserAction> doAction(@PathVariable Action action) {
+    @GetMapping("do/{action}/{idPuppet}")
+    public List<UserAction> doAction(@PathVariable Action action , @PathVariable String idPuppet) {
+        gameService.setCurrentPuppet(playerService.findPuppet(idPuppet));
         gameService.doAction(action);
         return getStats();
         //do/FEED
     }
 
-    @GetMapping("/get/CurrentStatus")
-    public Status getCurrentStatus() {
-        return gameService.getCurrentLifeBeing().getStatus();
+    @GetMapping("/get/CurrentStatus/{id}")
+    public Status getCurrentStatus(@PathVariable String id) {
+        return playerService.findPuppet(id).getStatus();
+    }
+    @GetMapping("/get/puppet/{id}")
+    public Puppet getPuppet(@PathVariable String id) {
+        return playerService.findPuppet(id);
     }
 
     @GetMapping("/get/Stats")
@@ -39,24 +44,25 @@ public class RestToyWarsController {
         return gameService.getUserActions();
     }
 
-    @GetMapping("/render/{mode}")
-    public void getRender(@PathVariable RenderType mode) {
-        gameService.render(mode);
+    @GetMapping("/render/{mode}/{id}")
+    public String getRender(@PathVariable RenderType mode, @PathVariable String id) {
+        gameService.setCurrentPuppet(playerService.findPuppet(id));
+        return gameService.render(mode);
     }
 
     @PostMapping("/new/pokemon")
-    public LifeBeing createNewPoke(@ModelAttribute Pokemon pokemon) {
+    public Puppet createNewPoke(@ModelAttribute Pokemon pokemon, String id) {
         gameService.createNewPokemon(pokemon);
-        playerService.getCurrentPlayer().addPuppet(gameService.getCurrentLifeBeing()); //seteamos el puppet al player
-        return gameService.getCurrentLifeBeing();
+        playerService.findPlayer(id).addPuppet(gameService.getCurrentPuppet()); //seteamos el puppet al player
+        return gameService.getCurrentPuppet();
 
     }
 
     @PostMapping("/new/tamagochi")
-    public LifeBeing createNewTama(@ModelAttribute Tamagochi tamagochi) {
+    public Puppet createNewTama(@ModelAttribute Tamagochi tamagochi, Player player) {
         gameService.createNewTamagochi(tamagochi);
-        playerService.getCurrentPlayer().addPuppet(gameService.getCurrentLifeBeing()); //seteamos el puppet al player
-        return gameService.getCurrentLifeBeing();
+        playerService.findPlayer(player.getId()).addPuppet(gameService.getCurrentPuppet());//seteamos el puppet al player
+        return gameService.getCurrentPuppet();
     }
 
     @GetMapping("/getActions")
@@ -65,7 +71,7 @@ public class RestToyWarsController {
     }
 
     @GetMapping("/getCurrentPuppet")
-    public LifeBeing getCurrentPuppet() {
-        return gameService.getCurrentLifeBeing();
+    public Puppet getCurrentPuppet() {
+        return gameService.getCurrentPuppet();
     }
 }

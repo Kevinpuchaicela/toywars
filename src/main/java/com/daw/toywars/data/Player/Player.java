@@ -1,29 +1,31 @@
 package com.daw.toywars.data.Player;
 
-import com.daw.toywars.data.LifeBeing;
+import com.daw.toywars.data.puppets.Puppet;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Player {
-    private Integer id;
+    private String id;
     private String name;
     private String email;
     private String password;
-    private List<LifeBeing> puppets;
+    private List<Puppet> puppets;
 
-    public Player(Integer id, String name, String email, String password, List<LifeBeing> puppets) {
-        this.id = id;
+    public Player(String name, String email, String password) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.email = email;
         this.password = password;
-        this.puppets = puppets;
+        this.puppets = new ArrayList<>();
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,14 +53,14 @@ public class Player {
         this.password = password;
     }
 
-    public List<LifeBeing> getPuppets() {
+    public List<Puppet> getPuppets() {
         return puppets;
     }
 
-    public void setPuppets(List<LifeBeing> puppets) {
+    public void setPuppets(List<Puppet> puppets) {
         this.puppets = puppets;
     }
-    public void addPuppet(LifeBeing puppet){
+    public void addPuppet(Puppet puppet){
         this.puppets.add(puppet);
     }
 }
