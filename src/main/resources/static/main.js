@@ -46,7 +46,6 @@ async function getRender(id) {
     await fetch(`${URL}/rest/render/HTML/${id}`)
         .then(response => response.text())
         .then(data => {
-            console.log("RENDER" + data)
             document.getElementById("render").innerHTML = `
         <div class="life-being__render">
         <img src="${data}" alt="${data}">
@@ -152,7 +151,6 @@ async function getFetchPuppet(id) {
     return await fetch(`${URL}/rest/get/puppet/${id}`).then(response => response.json())
 }
 async function setCurrentPuppet(id) {
-    console.log("click")
     let puppet = await getFetchPuppet(id);
     sessionStorage.setItem("puppet", JSON.stringify(puppet))
     location.href = "/"
