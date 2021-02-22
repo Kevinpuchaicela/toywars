@@ -8,7 +8,6 @@ formLogin.addEventListener("submit", (e) => {
         body: data
     }).then(response => response.json())
         .then(data => {
-            console.log(data)
             if (!(data === undefined)) {
                 sessionStorage.setItem("player", JSON.stringify(data));
                 location.reload()
